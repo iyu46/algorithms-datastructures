@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText, Collapse } from '@material-ui/core'
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
@@ -24,17 +23,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: '0',
     marginBottom: '0',
   },
-  removeLinkStyling: {
-    '&:link, &:visited, &:hover': {
-        color: 'inherit',
-        textDecoration: 'none',
-    },
-    '&:active': {
-        color: 'inherit',
-        fontWeight: 'bold',
-        textDecoration: 'none',
-    },
-  },
 }));
 
 export default function SidebarDSEntry() {
@@ -48,45 +36,31 @@ export default function SidebarDSEntry() {
   return (
     <List className={classes.list}>
       <ListItem button onClick={handleClick}>
-          <ListItemText primary="Data Structures" />
-          {open ? <ExpandLess /> : <ExpandMore />}
+        <ListItemText primary="Abstract Data Types" />
+        {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link to={'/data-structures/array'} className={classes.removeLinkStyling}>
-            <ListItem button className={classes.nested} inset>
-                <ListItemText primary="Array" />
-                <ListItemText secondary="+ Sorted Array" />
-            </ListItem>
-          </Link>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Linked List" />
-            <ListItemText secondary=" + Doubly-Linked List" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Stack" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} inset>
             <ListItemText primary="Queue" />
-            <ListItemText secondary="+ Deque, PQ" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="Binary Search Tree" />
+            <ListItemText primary="Dictionary" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="AVL Tree" />
+            <ListItemText primary="Tree" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="Hash Table" />
+            <ListItemText primary="Map" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="B-Tree" />
+            <ListItemText primary="Priority Queue" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="Heap" />
+            <ListItemText primary="Set" />
           </ListItem>
           <ListItem button className={classes.nested}>
-            <ListItemText primary="Disjoint Set" />
+            <ListItemText primary="Graph" />
           </ListItem>
         </List>
       </Collapse>

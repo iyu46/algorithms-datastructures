@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@material-ui/core'
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import { List, ListItem, ListItemText, Collapse } from '@material-ui/core'
+import { ExpandLess, ExpandMore, FormatBold } from '@material-ui/icons'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +25,17 @@ const useStyles = makeStyles(theme => ({
     marginTop: '0',
     marginBottom: '0',
   },
+  removeLinkStyling: {
+    '&:link, &:visited, &:hover': {
+        color: 'inherit',
+        textDecoration: 'none',
+    },
+    '&:active': {
+        color: 'inherit',
+        fontWeight: 'bold',
+        textDecoration: 'none',
+    },
+  },
 }));
 
 export default function SidebarAEntry() {
@@ -36,17 +49,21 @@ export default function SidebarAEntry() {
   return (
     <List className={classes.list}>
       <ListItem button onClick={handleClick}>
-        <ListItemText primary="Algorithms" />
-        {open ? <ExpandLess /> : <ExpandMore />}
+          <ListItemText primary="Algorithms" />
+          {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Insertion Sort" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Selection Sort" />
-          </ListItem>
+          <Link to={'/algorithms/insertion-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+                <ListItemText primary="Insertion Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/selection-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Selection Sort" />
+            </ListItem>
+          </Link>
           <ListItem button className={classes.nested}>
             <ListItemText primary="Bubble Sort" />
           </ListItem>
@@ -58,6 +75,12 @@ export default function SidebarAEntry() {
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemText primary="Heap Sort" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemText primary="Breadth-First Search" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemText primary="Depth-First Search" />
           </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemText primary="Kruskal's" />

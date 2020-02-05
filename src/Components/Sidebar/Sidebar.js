@@ -6,9 +6,11 @@ import { AccountCircle } from '@material-ui/icons';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import favicon from './favicon.ico';
-//import CollapsibleEntry from './CollapsibleEntry';
+// import CollapsibleEntry from '../../CollapsibleEntry';
 import SidebarDSEntry from './SidebarDSEntry';
 import SidebarAEntry from './SidebarAEntry';
+import SidebarADTEntry from './SidebarADTEntry';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -21,6 +23,10 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     width: '55px',
     height: '100%',
+    backgroundColor: 'rgba(ff,ff,ff,0.4)',
+    '&:hover !important': {
+      backgroundColor: 'rgba(ff,ff,ff,1)'
+    }
   },
   paperItems: {
     position: 'fixed',
@@ -63,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     transform: "scale(0.7)",
     position: 'relative',
     left: '7px',
-    alignItems: 'center',
+    verticalAlign: 'middle',
   },
   list: {
     padding: '0',
@@ -91,8 +97,6 @@ const useStyles = makeStyles(theme => ({
   },
   listAccount: {
     position: 'fixed',
-    paddingTop: 0,
-    paddingBottom: 0,
     width: drawerWidth - 1,
     bottom: '0px',
     backgroundColor: '#ffffff',
@@ -135,6 +139,7 @@ const useStyles = makeStyles(theme => ({
     }),
     marginLeft: 0,
   },
+
 }));
 
 export default function Sidebar() {
@@ -182,7 +187,9 @@ export default function Sidebar() {
         }}
       >
         <div className={classes.drawerHeader}>
-        <img src={favicon} className={classes.csIcon} alt="favicon" />
+        <Link to=''>
+          <img src={favicon} className={classes.csIcon} alt="favicon" />
+        </Link>
           <IconButton className={classes.menuButtonDrawer} onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
@@ -199,6 +206,8 @@ export default function Sidebar() {
             children={["Insertion Sort", "Selection Sort", "Bubble Sort", "Merge Sort", "Quick Sort", "Heap Sort", "Bogo Sort", "Kruskal's", "Minimum Spanning Tree", "Prim's", "Dijkstra's"]}/> */}
             <SidebarAEntry/>
         <Divider />
+            <SidebarADTEntry/>
+        <Divider />
           {['', ''].map((text, index) => (
             <ListItem className={classes.listBlank} key={text}>
               <ListItemIcon></ListItemIcon>
@@ -206,7 +215,7 @@ export default function Sidebar() {
             </ListItem>
           ))}
         </List>
-        <List className={classes.listAccount} disablePadding >
+        <List className={classes.listAccount} disablePadding>
         <Divider />
           {['Account'].map((text, index) => (
             <ListItem button key={text}>

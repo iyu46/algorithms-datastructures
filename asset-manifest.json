@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/algorithms-datastructures/static/css/main.d1b05096.chunk.css",
+    "main.js": "/algorithms-datastructures/static/js/main.6b4561a5.chunk.js",
+    "main.js.map": "/algorithms-datastructures/static/js/main.6b4561a5.chunk.js.map",
+    "runtime-main.js": "/algorithms-datastructures/static/js/runtime-main.c69ca5fd.js",
+    "runtime-main.js.map": "/algorithms-datastructures/static/js/runtime-main.c69ca5fd.js.map",
+    "static/js/2.67596943.chunk.js": "/algorithms-datastructures/static/js/2.67596943.chunk.js",
+    "static/js/2.67596943.chunk.js.map": "/algorithms-datastructures/static/js/2.67596943.chunk.js.map",
+    "index.html": "/algorithms-datastructures/index.html",
+    "precache-manifest.ad77f17aeccd5ab33c76aef99e0ce680.js": "/algorithms-datastructures/precache-manifest.ad77f17aeccd5ab33c76aef99e0ce680.js",
+    "service-worker.js": "/algorithms-datastructures/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/algorithms-datastructures/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.67596943.chunk.js.LICENSE.txt": "/algorithms-datastructures/static/js/2.67596943.chunk.js.LICENSE.txt",
+    "static/media/favicon.ico": "/algorithms-datastructures/static/media/favicon.5a87be72.ico"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c69ca5fd.js",
+    "static/js/2.67596943.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.6b4561a5.chunk.js"
+  ]
+}

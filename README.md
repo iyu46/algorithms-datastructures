@@ -20,6 +20,8 @@ Navigate your terminal to project folder and run the following commands
 
 ```npm install @material-ui/icons``` (installs the Material UI icons)
 
+```optional: npm install gh-pages``` (I'm not really sure if this one is necessary if you're not on my account, try starting and if it doesn't work do this)
+
 After those commands you can merge the repository files with the project folder and use
 
 ```npm start``` (run this when the terminal is in the same folder as package.json)

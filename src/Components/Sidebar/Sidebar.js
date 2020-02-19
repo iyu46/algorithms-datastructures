@@ -145,15 +145,33 @@ const useStyles = makeStyles(theme => ({
 export default function Sidebar() {
   const classes = useStyles();
   const theme = useTheme();
+  //const [state, setState] = React.useState({ isOpen: false, isHovering: false });
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    // this.setState(prevState => (
+    //   {isOpen: true}
+    // ));
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    // this.setState(prevState => (
+    //   {isOpen: false}
+    // ));
   };
+
+  // const handleMouseHover = () => {
+  //   //this.setState(this.toggleHoverState);
+  //   this.setState(this.toggleHoverState);
+  // };
+
+  // const toggleHoverState = (state) => {
+  //   return {
+  //     isHovering: !state.isHovering,
+  //   };
+  // };
 
   return (
     <div className={classes.root}>

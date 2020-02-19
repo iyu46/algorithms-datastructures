@@ -1,19 +1,21 @@
 import React from 'react';
+import RouteAlg from './RouteAlg';
+import RouteDS from './RouteDS';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function RoutingManager(unit) {
+function RoutingManager(params) {
 
-    const parseUnit = (unit) => {
-        console.log(unit);
-        switch (unit.unit) {
-            case "Array":
+    const parseParams = (params) => {
+        console.log(params);
+        switch (params.type) {
+            case "data-structures":
             return (
-                <h1>Array!</h1>
+                <RouteDS unit={params.unit} />
             );
-            case "Insertion Sort":
+            case "algorithms":
             return (
-                <h1>Insertion Sort!</h1>
+                <RouteAlg unit={params.unit} />
             );
             default: 
             return (
@@ -24,7 +26,7 @@ function RoutingManager(unit) {
     }
 
     return (
-        parseUnit(unit)
+        parseParams(params)
     );
 }
 

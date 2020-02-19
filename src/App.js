@@ -16,13 +16,13 @@ function App() {
   const displayURL = ({match}) => (
     <div>
       {/* <h1>{parseFromURL(match.params.unit)}</h1> */}
-      <RoutingManager unit={parseFromURL(match.params.unit)}/>
+      <RoutingManager unit={parseFromURL(match.params.unit)} type={match.params.type}/>
     </div>
   )
 
   return (
     <div className="App">
-      <Router>
+      <Router basename='/algorithms-datastructures/'>
         <header className="App-header">
           <img src={favicon} className="App-logo" alt="favicon" />
           <Route path="/data-structures/" render={() => (
@@ -31,8 +31,7 @@ function App() {
           <Route path="/algorithms/" render={() => (
             <h1> Algorithm </h1>
           )}/>
-          <Route path="/data-structures/:unit" component={displayURL}/>
-          <Route path="/algorithms/:unit" component={displayURL}/>
+          <Route path="/:type/:unit" component={displayURL}/>
         </header>
         <Sidebar/>
       </Router>

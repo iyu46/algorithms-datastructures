@@ -64,36 +64,56 @@ export default function SidebarAEntry() {
               <ListItemText primary="Selection Sort" />
             </ListItem>
           </Link>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Bubble Sort" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Merge Sort" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Quick Sort" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Heap Sort" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Breadth-First Search" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Depth-First Search" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Kruskal's" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Prim's" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Minimum Spanning Tree" />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Dijkstra's" />
-          </ListItem>
+          <Link to={'/algorithms/bubble-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Bubble Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/merge-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Merge Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/quick-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Quick Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/heap-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Heap Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/bfs'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Breadth-First Search" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/dfs'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Depth-First Search" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/kruskal'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Kruskal's" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/prim'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Prim's" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/mst'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Minimum Spanning Tree" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/dijkstra'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Dijkstra's" />
+            </ListItem>
+          </Link>
         </List>
       </Collapse>
     </List>

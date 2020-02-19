@@ -214,14 +214,8 @@ export default function Sidebar() {
         </div>
         <List disablePadding classes={classes.list}>
         <Divider /> 
-          {/* <CollapsibleEntry
-            top="Data Structures"
-            children={["Array", "Linked List", "Stack", <CollapsibleEntry top = "Queue" children = {["Priority Queue", "Deque"]}></CollapsibleEntry>, "Deque", "Binary Search Tree", "AVL Tree", "Hash table", "B-Tree", "Disjoint Set"]}/> */}
             <SidebarDSEntry/>
         <Divider />
-          {/* <CollapsibleEntry
-            top="Algorithms"
-            children={["Insertion Sort", "Selection Sort", "Bubble Sort", "Merge Sort", "Quick Sort", "Heap Sort", "Bogo Sort", "Kruskal's", "Minimum Spanning Tree", "Prim's", "Dijkstra's"]}/> */}
             <SidebarAEntry/>
         <Divider />
             <SidebarADTEntry/>

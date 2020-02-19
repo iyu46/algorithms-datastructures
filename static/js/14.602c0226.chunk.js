@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-app"]=this["webpackJsonpmy-app"]||[]).push([[14],{112:function(e,t,a){"use strict";a.r(t);var n=a(21),r=a(0),c=a.n(r),u=a(54),i=a(23),o=Object(u.a)((function(e){return{root:{}}}));t.default=function(e){o(),Object(i.a)();var t=c.a.useState(!1),a=Object(n.a)(t,2);return a[0],a[1],c.a.createElement("div",null,c.a.createElement("h1",null,"Merge Sort is a divide-and-conquer algorithm"))}}}]);
+//# sourceMappingURL=14.602c0226.chunk.js.map

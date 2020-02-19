@@ -1,5 +1,7 @@
 # algorithms-datastructures
-Graphical comparison tool for comparing the Big O of different algorithms and the operations on different data structures.
+Work-in-progress textbook for CPSC 221 (Basic Data Structures and Algorithms) at the University of British Columbia.
+
+Contains graphical comparison tools for comparing the Big O of different algorithms and the operations on different data structures.
 
 Written using React.js (JavaScript, HTML, CSS), and uses the Material UI library.
 

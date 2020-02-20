@@ -14,7 +14,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const _path = '../../Resources/CodeAnalysis/algorithms/merge.cpp'
+//const _path = '../../Resources/CodeAnalysis/algorithms/merge.cpp'
+const _path = 'https://kaillus.github.io/algorithms-datastructures/Resources/CodeAnalysis/algorithms/merge.cpp'
 
 function MergeSort(props) {
     const classes = useStyles();

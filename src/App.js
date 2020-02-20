@@ -25,7 +25,6 @@ function App() {
     <div className="App">
       <Router basename='/algorithms-datastructures/'>
         <header className="App-header">
-          <img src={favicon} className="App-logo" alt="favicon" />
           {/* <Route path="/data-structures/" render={() => (
             <h1> Data Structure </h1>
           )}/>
@@ -35,6 +34,9 @@ function App() {
           <Route path="/:type/:unit" component={displayURL}/> */}
           <Switch>
           <Suspense fallback={<div />}>
+            <Route exact path="/" render={() => (
+              <img src={favicon} className="App-logo" alt="favicon" />
+            )}/>
             <Route path="/algorithms/:unit" component={AlgContainer}/>
             <Route path="/data-structures/:unit" component={DSContainer}/>
           </Suspense>

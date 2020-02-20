@@ -1,38 +1,54 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Divider, Paper } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
+    },
+    code: {
+        fontSize: "calc(4px + 2vmin)",
+        textAlign: "left!important",
+        display: "inline-block!important",
+        boxSizing: "border-box!important",
+    },
+    tooltip: {
+        position: 'relative',
+    },
+    text: {
+        display: 'table',
+        '&:hover': {
+            color: '#eeeeee',
+            backgroundColor: 'rgba(00, 00, 00, 0.6)',
+            boxShadow: "0 0 10px 3px rgba(00, 00, 00, 0.6)",
+        },
     },
 }));
 
 function CodeAnalysisModule(unit) {
     const classes = useStyles();
     const theme = useTheme();
-    const [state, setState] = React.useState(false);
+    const [code, setCode] = useState([]);
+    const _path = unit.unit;
 
-    const parseUnit = (unit) => {
-        console.log(unit);
-        switch (unit.unit) {
-            case "Array":
-            return (
-                <h1>Array!</h1>
-            );
-            case "Insertion Sort":
-            return (
-                <h1>Insertion Sort!</h1>
-            );
-            default: 
-            return (
-                <h1>Uh oh</h1>
-            )
+    useEffect(() => {
+        async function loadFile(path) {
+            return await fetch(path)
+                .then((r) => r.text())
+                .then((r) => r.split("\n"))
+                .then((r) => r.filter(a => !a.includes("////")))
+                .then((r) => setCode(r));
         }
 
-    }
+        loadFile(_path);
+    }, [_path]);
 
     return (
-        parseUnit(unit)
+        <div className={classes.code}>
+            {code.map(item => 
+            <Tooltip title={item} interactive className={classes.tooltip}>
+                <pre className={classes.text}>{item}</pre>
+            </Tooltip>)}
+        </div>
     );
 }
 

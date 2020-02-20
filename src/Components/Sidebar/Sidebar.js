@@ -23,10 +23,6 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     width: '55px',
     height: '100%',
-    backgroundColor: 'rgba(ff,ff,ff,0.4)',
-    '&:hover !important': {
-      backgroundColor: 'rgba(ff,ff,ff,1)'
-    }
   },
   paperItems: {
     position: 'fixed',

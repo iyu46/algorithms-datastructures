@@ -7,10 +7,8 @@ const useStyles = makeStyles(theme => ({
     root: {
     },
     paper: {
-        position: 'relative',
         justifyContent: 'center',
         alignItems: 'center',
-        width: "60%",
     },
 }));
 

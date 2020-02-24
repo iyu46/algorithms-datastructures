@@ -10,6 +10,7 @@ import favicon from './favicon.ico';
 import SidebarDSEntry from './SidebarDSEntry';
 import SidebarAEntry from './SidebarAEntry';
 import SidebarADTEntry from './SidebarADTEntry';
+import SidebarConceptEntry from './SidebarConceptEntry';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -210,11 +211,13 @@ export default function Sidebar() {
         </div>
         <List disablePadding classes={classes.list}>
         <Divider /> 
-            <SidebarDSEntry/>
-        <Divider />
             <SidebarAEntry/>
         <Divider />
+            <SidebarDSEntry/>
+        <Divider />
             <SidebarADTEntry/>
+        <Divider />
+            <SidebarConceptEntry/>
         <Divider />
           {['', ''].map((text, index) => (
             <ListItem className={classes.listBlank} key={text}>

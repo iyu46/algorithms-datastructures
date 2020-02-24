@@ -84,6 +84,16 @@ export default function SidebarAEntry() {
               <ListItemText primary="Heap Sort" />
             </ListItem>
           </Link>
+          <Link to={'/algorithms/binary-search'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Binary Search" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/order-traversal'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="X-Order Traversal (Trees)" />
+            </ListItem>
+          </Link>
           <Link to={'/algorithms/bfs'} className={classes.removeLinkStyling}>
             <ListItem button className={classes.nested}>
               <ListItemText primary="Breadth-First Search" />

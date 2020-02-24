@@ -7,6 +7,8 @@ const BubbleSort = lazy(() => import("../Module/algorithms/BubbleSort"));
 const MergeSort = lazy(() => import("../Module/algorithms/MergeSort"));
 const QuickSort = lazy(() => import("../Module/algorithms/QuickSort"));
 const HeapSort = lazy(() => import("../Module/algorithms/HeapSort"));
+const OrderTraversal = lazy(() => import("../Module/algorithms/OrderTraversal"));
+const BinarySearch = lazy(() => import("../Module/algorithms/BinarySearch"));
 const BFS = lazy(() => import("../Module/algorithms/BFS"));
 const DFS = lazy(() => import("../Module/algorithms/DFS"));
 const Kruskal = lazy(() => import("../Module/algorithms/Kruskal"));
@@ -21,6 +23,8 @@ const unitToComponent = {
   "merge-sort": MergeSort,
   "quick-sort": QuickSort,
   "heap-sort": HeapSort,
+  "order-traversal": OrderTraversal,
+  "binary-search": BinarySearch,
   "bfs": BFS,
   "dfs": DFS,
   "kruskal": Kruskal,

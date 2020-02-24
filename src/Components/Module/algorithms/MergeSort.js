@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Divider, Paper } from '@material-ui/core';
-import CodeAnalysisModule from '../../CodeAnalysis/CodeAnalysisModule.js';
+//import CodeAnalysisModule from '../../CodeAnalysis/CodeAnalysisModule.js';
+
+const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 
 const useStyles = makeStyles(theme => ({
     root: {

@@ -1,13 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Divider, Paper } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
     },
     code: {
-        fontSize: "calc(4px + 2vmin)",
+        fontSize: "calc(4px + 1vw)",
         textAlign: "left!important",
+        display: "inline-block!important",
+        boxSizing: "border-box!important",
+        position: "relative",
+        left: "-100px",
+    },
+    tooltip: {
+        position: 'relative',
+    },
+    text: {
+        display: 'table',
+        '&:hover': {
+            color: '#eeeeee',
+            backgroundColor: 'rgba(00, 00, 00, 0.6)',
+            boxShadow: "0 0 10px 3px rgba(00, 00, 00, 0.6)",
+        },
     },
 }));
 
@@ -19,13 +34,13 @@ function CodeAnalysisModule(unit) {
     const [top, setTop] = useState('');
     const _path = unit.unit;
 
-
     useEffect(() => {
-        async function loadData(path) {
+        async function loadFile(path) {
             return await fetch(path)
                 .then((r) => r.text())
                 .then((r) => r.split("\n"))
-
+                // .then((r) => r.filter(a => !a.includes("////")))
+                // .then((r) => setCode(r));
                 .then((r) => r.forEach(i => {
                     if (top === '') { // if the first line in the file (header)
                         setTop(i);
@@ -44,15 +59,22 @@ function CodeAnalysisModule(unit) {
                         let temp = code;
                         setCode(temp.push(i));
                     }
-                }));
-        }
+                }))};
 
-        loadData(_path);
-    }, [_path, code, help, top]);
+        loadFile(_path);
+    });
 
     return (
         <div className={classes.code}>
-            {/* {code.map(item => <pre>{item}</pre>)} */}
+            {/* {code.map(item => 
+            {if (!item.includes("}")) {
+                return (
+                    <Tooltip title={item} interactive className={classes.tooltip} placement="right">
+                        <pre className={classes.text}>{item}</pre>
+                    </Tooltip>)
+            } else {
+                return (<pre className={classes.text}>{item}</pre>)
+            }})} */}
             {console.log(code)}
             {console.log(help)}
             {console.log(top)}

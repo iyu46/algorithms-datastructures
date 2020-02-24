@@ -6,10 +6,12 @@ const useStyles = makeStyles(theme => ({
     root: {
     },
     code: {
-        fontSize: "calc(4px + 2vmin)",
+        fontSize: "calc(4px + 1vw)",
         textAlign: "left!important",
         display: "inline-block!important",
         boxSizing: "border-box!important",
+        position: "relative",
+        left: "-100px",
     },
     tooltip: {
         position: 'relative',
@@ -40,14 +42,19 @@ function CodeAnalysisModule(unit) {
         }
 
         loadFile(_path);
-    }, [_path]);
+    });
 
     return (
         <div className={classes.code}>
             {code.map(item => 
-            <Tooltip title={item} interactive className={classes.tooltip}>
-                <pre className={classes.text}>{item}</pre>
-            </Tooltip>)}
+            {if (!item.includes("}")) {
+                return (
+                    <Tooltip title={item} interactive className={classes.tooltip} placement="right">
+                        <pre className={classes.text}>{item}</pre>
+                    </Tooltip>)
+            } else {
+                return (<pre className={classes.text}>{item}</pre>)
+            }})}
         </div>
     );
 }

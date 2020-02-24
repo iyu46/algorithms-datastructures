@@ -6,12 +6,11 @@ import { AccountCircle } from '@material-ui/icons';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import favicon from './favicon.ico';
-// import CollapsibleEntry from '../../CollapsibleEntry';
 import SidebarDSEntry from './SidebarDSEntry';
 import SidebarAEntry from './SidebarAEntry';
 import SidebarADTEntry from './SidebarADTEntry';
 import SidebarConceptEntry from './SidebarConceptEntry';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 

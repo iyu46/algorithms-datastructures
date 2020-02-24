@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
         display: "inline-block!important",
         boxSizing: "border-box!important",
         position: "relative",
-        left: "-100px",
     },
     tooltip: {
         position: 'relative',

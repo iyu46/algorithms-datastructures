@@ -1,6 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import cpp from 'react-syntax-highlighter/dist/esm/languages/hljs/cpp';
+//import docco from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light';
+import docco from './atom-one-light';
+import { makeStyles } from '@material-ui/core/styles';
 import { Tooltip } from '@material-ui/core';
+
+SyntaxHighlighter.registerLanguage('cpp', cpp);
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,14 +26,13 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             color: '#eeeeee',
             backgroundColor: 'rgba(00, 00, 00, 0.6)',
-            boxShadow: "0 0 10px 3px rgba(00, 00, 00, 0.6)",
+            boxShadow: "0 0 10px 3px rgba(11, 11, 11, 0.6)",
         },
     },
 }));
 
 function CodeAnalysisModule(unit) {
     const classes = useStyles();
-    const theme = useTheme();
     const [code, setCode] = useState([]);
     const _path = unit.unit;
 
@@ -46,14 +51,21 @@ function CodeAnalysisModule(unit) {
     return (
         <div className={classes.code}>
             {code.map(item => 
-            {if (!item.includes("}")) {
+            {if (!item.includes("}") || (!item === "\n")) {
                 return (
                     <Tooltip title={item} interactive className={classes.tooltip} placement="right">
-                        <pre className={classes.text}>{item}</pre>
+                        <pre className={classes.text}>
+                            <SyntaxHighlighter language="cpp" style={docco}>
+                                {item}
+                            </SyntaxHighlighter>
+                        </pre>
                     </Tooltip>)
             } else {
-                return (<pre className={classes.text}>{item}</pre>)
-            }})}
+                return (
+                    <pre className={classes.text}>{item}</pre>
+                )
+            }
+            })}
         </div>
     );
 }

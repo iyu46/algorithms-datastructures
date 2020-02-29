@@ -12,7 +12,9 @@ void mergeSort(vector<T> & vect, int low, int high) {
     mergeSort(vect, middle + 1, high);
     /* Call merge to attach the first half of the sorted vector to the second half. By joining these pieces, we guarantee that all elements in the vector from low to high are correctly sorted. See the proof section for a formal description of why that is the case. */
     merge(vect, low, middle, high);
+    /**/
   }
+  /**/
 }
 /* An example call to mergeSort() is shown at the bottom that would sort the entire 'items' vector. */
 mergeSort(items, 0, items.size() - 1);

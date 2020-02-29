@@ -33,6 +33,8 @@ Navigate your terminal to project folder and run the following commands
 
 ```npm install react-syntax-highlighter --save``` (installs a syntax highlighting component for inline code)
 
+```npm install react-scroll``` (installs a library for dynamically-called smooth scrolling events)
+
 ```npm install @material-ui/core``` (installs the Material UI library)
 
 ```npm install @material-ui/icons``` (installs the Material UI icons)

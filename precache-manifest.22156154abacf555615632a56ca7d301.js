@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "07c8ca72b0a5cfe2b9110189057ec874",
+    "revision": "ced11c5343caa7aff8c26ca8d7e20dc3",
     "url": "/algorithms-datastructures/index.html"
   },
   {
-    "revision": "6c3519569157becf235e",
-    "url": "/algorithms-datastructures/static/css/main.d4a4f6f7.chunk.css"
+    "revision": "2b817e4b0bb915005420",
+    "url": "/algorithms-datastructures/static/css/main.22c4d6f4.chunk.css"
   },
   {
-    "revision": "ec8ec4ec5320ba385880",
-    "url": "/algorithms-datastructures/static/js/0.eee73127.chunk.js"
+    "revision": "b342cc4785a838e0aae8",
+    "url": "/algorithms-datastructures/static/js/0.8740b47e.chunk.js"
   },
   {
     "revision": "f63df48ced63260963b6",
@@ -36,20 +36,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/algorithms-datastructures/static/js/15.30dfab16.chunk.js"
   },
   {
-    "revision": "e3eaf20a62faf93d1dd2",
-    "url": "/algorithms-datastructures/static/js/16.e26b8d6a.chunk.js"
+    "revision": "a9f16c4dd13cb5faefd3",
+    "url": "/algorithms-datastructures/static/js/16.62991bfa.chunk.js"
   },
   {
-    "revision": "f4fbb0fbbfcb8b0863c1",
-    "url": "/algorithms-datastructures/static/js/17.447101ea.chunk.js"
+    "revision": "6233b5815a5dafca9141",
+    "url": "/algorithms-datastructures/static/js/17.7bc9226d.chunk.js"
   },
   {
     "revision": "add0da18429700b1deb7",
     "url": "/algorithms-datastructures/static/js/18.39fb0917.chunk.js"
   },
   {
-    "revision": "9fb405801184f86c7f9d",
-    "url": "/algorithms-datastructures/static/js/19.c5d0114e.chunk.js"
+    "revision": "059aa32809180562951f",
+    "url": "/algorithms-datastructures/static/js/19.c35309ca.chunk.js"
   },
   {
     "revision": "011c31a0b56e193a3ceb",
@@ -88,12 +88,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/algorithms-datastructures/static/js/9.df772b36.chunk.js"
   },
   {
-    "revision": "6c3519569157becf235e",
-    "url": "/algorithms-datastructures/static/js/main.c893dd9a.chunk.js"
+    "revision": "2b817e4b0bb915005420",
+    "url": "/algorithms-datastructures/static/js/main.674d8595.chunk.js"
   },
   {
-    "revision": "b1454bbc9de9ebea3379",
-    "url": "/algorithms-datastructures/static/js/runtime-main.fa6d7bdb.js"
+    "revision": "706023a7af81fe7a9c28",
+    "url": "/algorithms-datastructures/static/js/runtime-main.ea3ff5de.js"
   },
   {
     "revision": "5a87be723ecec03f42c098e4ffae4e82",

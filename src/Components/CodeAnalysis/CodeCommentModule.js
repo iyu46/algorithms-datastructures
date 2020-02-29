@@ -48,9 +48,6 @@ function CodeCommentModule(unit) {
             mounted.current = true;
         }
     });
-
-
-
     
     return (
         <div className={classes.code}>

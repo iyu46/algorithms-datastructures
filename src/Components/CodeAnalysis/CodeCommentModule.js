@@ -39,7 +39,7 @@ function CodeCommentModule(unit) {
             return await fetch(path)
                 .then((r) => r.text())
                 .then((r) => r.split("\n"))
-                .then((r) => r.filter(a => a.includes("/* ")))
+                .then((r) => r.filter(a => a.includes("/*")))
                 .then((r) => setCode(r));
         }
 
@@ -58,13 +58,15 @@ function CodeCommentModule(unit) {
                 paddingBottom: '300px',
             }}>
             <Divider />
-                {code.map((item, index) => 
-                    <Element name={index.toString()} key={index}>
+                {code.map((item, index) => {
+                    if (item.trim() !== "/**/") {
+                    return (<Element name={index.toString()} key={index}>
                         {/* <Link activeClass="active" to={index} spy={true} smooth={true} duration={250} containerId={_id}> */}
                             <p key={index}>{item.split("/* ").join("").split(" */").join("").concat("\n", "\n")}</p>
                             <Divider />
                         {/* </Link> */}
-                    </Element>)}
+                    </Element>)
+                    }})}
             </Element>
         </div>
     );

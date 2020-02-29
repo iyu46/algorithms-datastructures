@@ -48,7 +48,7 @@ function CodeAnalysisModule(unit) {
             return await fetch(path)
                 .then((r) => r.text())
                 .then((r) => r.split("\n"))
-                .then((r) => r.filter(a => !a.includes("/* ")))
+                .then((r) => r.filter(a => !a.includes("/* ") && !a.includes("/**/")))
                 .then((r) => setCode(r));
         }
 
@@ -70,19 +70,13 @@ function CodeAnalysisModule(unit) {
     }
 
     function scrollTo(index) {
-        let goto;
-        if (index > 7) {
-            goto = 7;
-        } else {
-            goto = index;
-        }
-        scroller.scrollTo(goto, {
+        scroller.scrollTo(index, {
             activeClass: 'active',
             duration: 300,
             smooth: true,
             containerId: _id,
             });
-            console.log("jumping to " + goto);
+            console.log("jumping to " + index);
             //console.table(code);
     }
 

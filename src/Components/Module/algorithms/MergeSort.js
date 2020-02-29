@@ -1,17 +1,22 @@
 import React, { lazy } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Divider, Paper } from '@material-ui/core';
-//import CodeAnalysisModule from '../../CodeAnalysis/CodeAnalysisModule.js';
+import { Grid, Paper } from '@material-ui/core';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
+const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
 
 const useStyles = makeStyles(theme => ({
     root: {
+        flexGrow: 1,
     },
     paper: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: theme.spacing(1),
+        maxWidth: '50vw',
     },
+    container: {
+        marginLeft: "10px",
+        marginRight: "10px",
+    }
 }));
 
 //const _path = '../../Resources/CodeAnalysis/algorithms/merge.cpp'
@@ -20,13 +25,25 @@ const _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructur
 function MergeSort(props) {
     const classes = useStyles();
     const theme = useTheme();
-    const [inProp, setInProp] = React.useState(false);
+    const [currentLine, setLine] = React.useState('0');
+    const _id = "merge";
 
     return (
         <div>
             <h1>Merge Sort is a divide-and-conquer algorithm</h1>
-            <Paper elevation={3} className={classes.paper}>
-                <CodeAnalysisModule unit={_path}/>
+            <Paper elevation={3} className={classes.container}>
+                <Grid container spacing={0} direction="row" alignItems="center">
+                    <Grid item xs={12} sm={6}>
+                        <Paper elevation={0} className={classes.paper}>
+                            <CodeAnalysisModule unit={_path} id={_id}/>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Paper elevation={0} className={classes.paper}>
+                            <CodeCommentModule unit={_path} id={_id}/>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </Paper>
         </div>
     );

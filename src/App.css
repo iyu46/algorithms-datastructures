@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   margin-left: 55px;
 }
 
@@ -43,17 +42,8 @@ pre {
   margin-bottom: 0px;
 }
 
-.my-node-enter {
-  opacity: 0;
-}
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-.my-node-exit {
-  opacity: 1;
-}
-.my-node-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+.active {
+  color: '#eeeeee';
+  backgroundColor: 'rgba(00, 00, 00, 0.6)';
+  boxShadow: "0 0 10px 3px rgba(11, 11, 11, 0.6)";
 }

@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import cpp from 'react-syntax-highlighter/dist/esm/languages/hljs/cpp';
-//import docco from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light';
-import docco from './atom-one-light';
+import atom from './atom-one-light';
 import { makeStyles } from '@material-ui/core/styles';
-import { Tooltip } from '@material-ui/core';
-
+import * as Scroll from 'react-scroll';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 SyntaxHighlighter.registerLanguage('cpp', cpp);
 
 const useStyles = makeStyles(theme => ({
@@ -13,58 +12,83 @@ const useStyles = makeStyles(theme => ({
     },
     code: {
         fontSize: "calc(4px + 1vw)",
-        textAlign: "left!important",
         display: "inline-block!important",
         boxSizing: "border-box!important",
-        position: "relative",
+        wordBreak: "break-all",
     },
     tooltip: {
         position: 'relative',
     },
     text: {
         display: 'table',
+        wordBreak: "break-all",
         '&:hover': {
             color: '#eeeeee',
             backgroundColor: 'rgba(00, 00, 00, 0.6)',
             boxShadow: "0 0 10px 3px rgba(11, 11, 11, 0.6)",
         },
     },
+    active: {
+        color: '#eeeeee',
+        backgroundColor: 'rgba(00, 00, 00, 0.6)',
+        boxShadow: "0 0 10px 3px rgba(11, 11, 11, 0.6)",
+    },
 }));
 
 function CodeAnalysisModule(unit) {
     const classes = useStyles();
     const [code, setCode] = useState([]);
+    const [hover, setHoverIndex] = useState(false);
     const _path = unit.unit;
+    const _id = unit.id;
+    const mounted = useRef(false);
 
     useEffect(() => {
         async function loadFile(path) {
             return await fetch(path)
                 .then((r) => r.text())
                 .then((r) => r.split("\n"))
-                .then((r) => r.filter(a => !a.includes("////")))
+                .then((r) => r.filter(a => !a.includes("/* ")))
                 .then((r) => setCode(r));
         }
 
-        loadFile(_path);
+        if (!mounted.current) {
+            loadFile(_path);
+            mounted.current = true;
+        }
     });
+
+    const onMouseHover = (index) => {
+        setHoverIndex(index);
+        scrollTo(index);
+        //console.log("hovering");
+        //console.log("index is " + index);
+    }
+
+    const onMouseExit = () => {
+        //console.log("exit");
+    }
+
+    function scrollTo(index) {
+        scroller.scrollTo(index, {
+            activeClass: 'active',
+            duration: 300,
+            smooth: true,
+            containerId: _id,
+            });
+            //console.log("jumping to " + index);
+            //console.table(code);
+    }
 
     return (
         <div className={classes.code}>
-            {code.map(item => 
-            {if (!item.includes("}") || (!item === "\n")) {
-                return (
-                    <Tooltip title={item} interactive className={classes.tooltip} placement="right">
-                        <pre className={classes.text}>
-                            <SyntaxHighlighter language="cpp" style={docco}>
-                                {item}
-                            </SyntaxHighlighter>
-                        </pre>
-                    </Tooltip>)
-            } else {
-                return (
-                    <pre className={classes.text}>{item}</pre>
-                )
-            }
+            {code.map((item, index) => 
+            { return (
+                <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onMouseLeave={() => onMouseExit()}>
+                    <SyntaxHighlighter language="cpp" style={atom}>
+                        {item}
+                    </SyntaxHighlighter>
+                </pre>)
             })}
         </div>
     );

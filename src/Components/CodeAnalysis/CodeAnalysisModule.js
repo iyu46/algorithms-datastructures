@@ -70,13 +70,19 @@ function CodeAnalysisModule(unit) {
     }
 
     function scrollTo(index) {
-        scroller.scrollTo(index, {
+        let goto;
+        if (index > 7) {
+            goto = 7;
+        } else {
+            goto = index;
+        }
+        scroller.scrollTo(goto, {
             activeClass: 'active',
             duration: 300,
             smooth: true,
             containerId: _id,
             });
-            //console.log("jumping to " + index);
+            console.log("jumping to " + goto);
             //console.table(code);
     }
 
@@ -84,7 +90,7 @@ function CodeAnalysisModule(unit) {
         <div className={classes.code}>
             {code.map((item, index) => 
             { return (
-                <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onMouseLeave={() => onMouseExit()}>
+                <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onMouseLeave={() => onMouseExit()} key={index}>
                     <SyntaxHighlighter language="cpp" style={atom}>
                         {item}
                     </SyntaxHighlighter>

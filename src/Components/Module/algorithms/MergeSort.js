@@ -24,8 +24,6 @@ const _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructur
 
 function MergeSort(props) {
     const classes = useStyles();
-    const theme = useTheme();
-    const [currentLine, setLine] = React.useState('0');
     const _id = "merge";
 
     return (

@@ -1,21 +1,18 @@
 import React, {useEffect, useState, useRef} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Tooltip } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
-import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element } from 'react-scroll'
 
 const useStyles = makeStyles(theme => ({
     root: {
     },
     code: {
         fontSize: "calc(2px + 1vw)",
-        wordWrap: "break-all",
         overflowWrap: "break-word",
         wordBreak: "normal",
         whiteSpace: "unset",
         maxWidth: "50vw",
-        display: "inline-block",
         boxSizing: "border-box!important",
     },
     tooltip: {
@@ -52,18 +49,23 @@ function CodeCommentModule(unit) {
         }
     });
 
+
+
+    
     return (
         <div className={classes.code}>
             <Element name="comments" className="active" id={_id} style={{
                 position: 'relative',
                 height: '300px',
-                overflow: 'hidden',
+                overflow: 'scroll',
                 paddingBottom: '300px',
             }}>
+            <Divider />
                 {code.map((item, index) => 
-                    <Element name={index}>
+                    <Element name={index.toString()} key={index}>
                         {/* <Link activeClass="active" to={index} spy={true} smooth={true} duration={250} containerId={_id}> */}
-                            <p>{item.split("/* ").join("").split(" */").join("").concat("\n", "\n")}</p>
+                            <p key={index}>{item.split("/* ").join("").split(" */").join("").concat("\n", "\n")}</p>
+                            <Divider />
                         {/* </Link> */}
                     </Element>)}
             </Element>

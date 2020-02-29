@@ -66,11 +66,14 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     left: '7px',
     verticalAlign: 'middle',
+    animation: "App-logo-spin infinite 20s linear",
   },
   list: {
-    padding: '0',
-    paddingTop: '0 !important', 
-    paddingBottom: '0 !important',
+    overflow: "scroll",
+    '&::-webkit-scrollbar': {
+      width: '0px',
+      background: 'transparent',
+    },
   },
   listItems: {
     marginTop: '0',
@@ -208,7 +211,7 @@ export default function Sidebar() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <List disablePadding classes={classes.list}>
+        <List disablePadding className={classes.list}>
         <Divider /> 
             <SidebarAEntry/>
         <Divider />

@@ -54,14 +54,14 @@ export default function SidebarAEntry() {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Link to={'/algorithms/insertion-sort'} className={classes.removeLinkStyling}>
-            <ListItem button className={classes.nested}>
-                <ListItemText primary="Insertion Sort" />
-            </ListItem>
-          </Link>
           <Link to={'/algorithms/selection-sort'} className={classes.removeLinkStyling}>
             <ListItem button className={classes.nested}>
               <ListItemText primary="Selection Sort" />
+            </ListItem>
+          </Link>
+          <Link to={'/algorithms/insertion-sort'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+                <ListItemText primary="Insertion Sort" />
             </ListItem>
           </Link>
           <Link to={'/algorithms/bubble-sort'} className={classes.removeLinkStyling}>

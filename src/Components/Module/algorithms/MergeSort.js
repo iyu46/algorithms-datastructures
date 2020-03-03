@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
@@ -19,16 +19,21 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-//const _path = '../../Resources/CodeAnalysis/algorithms/merge.cpp'
-const _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/merge.cpp'
 
 function MergeSort(props) {
     const classes = useStyles();
-    const _id = "merge";
+    const _id = props.id;
+    console.log(props);
+    let _path;
+    if (props.useGitPath) {
+        _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
+    } else {
+        _path = '../../Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
+    }
 
     return (
         <div>
-            <h1>Merge Sort is a divide-and-conquer algorithm</h1>
+            <h1>Merge Sort is a recursive, divide-and-conquer algorithm</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, CssBaseline, List, Divider, Paper, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Drawer, CssBaseline, List, Divider, Paper, IconButton, ListItem, ListItemIcon, ListItemText, ClickAwayListener } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -173,6 +173,7 @@ export default function Sidebar() {
   // };
 
   return (
+    <ClickAwayListener onClickAway={handleDrawerClose}>
     <div className={classes.root}>
       <CssBaseline />
       <Paper elevation={3} square
@@ -238,7 +239,8 @@ export default function Sidebar() {
           ))}
         </List>
       </Drawer>
-
     </div>
+    </ClickAwayListener>
+    
   );
 }

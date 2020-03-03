@@ -33,6 +33,8 @@ const unitToComponent = {
   "dijkstra": Dijkstra,
 };
 
+const useGitPath = true;
+
 const AlgContainer = () => {
   const { unit } = useParams();
   const MatchedComponent = unitToComponent[unit];
@@ -40,7 +42,7 @@ const AlgContainer = () => {
     <>
       <h2>Algorithms</h2>
       {MatchedComponent ? 
-      ( <MatchedComponent props={unit}/> )
+      ( <MatchedComponent id={unit} useGitPath={useGitPath}/> )
       :
       ( "unit not found" )}
     </>

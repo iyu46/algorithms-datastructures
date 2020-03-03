@@ -3,15 +3,14 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import cpp from 'react-syntax-highlighter/dist/esm/languages/hljs/cpp';
 import atom from './atom-one-light';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll, scroller } from 'react-scroll'
 SyntaxHighlighter.registerLanguage('cpp', cpp);
 
 const useStyles = makeStyles(theme => ({
     root: {
     },
     code: {
-        fontSize: "calc(4px + 1vw)",
+        fontSize: "calc(3px + 1vw)",
         display: "inline-block!important",
         boxSizing: "border-box!important",
         wordBreak: "break-all",
@@ -27,6 +26,7 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: 'rgba(00, 00, 00, 0.6)',
             boxShadow: "0 0 10px 3px rgba(11, 11, 11, 0.6)",
         },
+        cursor: 'pointer',
     },
     active: {
         color: '#eeeeee',
@@ -61,12 +61,9 @@ function CodeAnalysisModule(unit) {
     const onMouseHover = (index) => {
         setHoverIndex(index);
         scrollTo(index);
+        return;
         //console.log("hovering");
         //console.log("index is " + index);
-    }
-
-    const onMouseExit = () => {
-        //console.log("exit");
     }
 
     function scrollTo(index) {
@@ -76,7 +73,7 @@ function CodeAnalysisModule(unit) {
             smooth: true,
             containerId: _id,
             });
-            console.log("jumping to " + index);
+            //console.log("jumping to " + index);
             //console.table(code);
     }
 
@@ -84,7 +81,7 @@ function CodeAnalysisModule(unit) {
         <div className={classes.code}>
             {code.map((item, index) => 
             { return (
-                <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onMouseLeave={() => onMouseExit()} key={index}>
+                <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onClick={(index) => scrollTo(index)} key={index}>
                     <SyntaxHighlighter language="cpp" style={atom}>
                         {item}
                     </SyntaxHighlighter>

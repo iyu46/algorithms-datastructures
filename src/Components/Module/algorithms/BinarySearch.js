@@ -4,6 +4,8 @@ import { Grid, Paper } from '@material-ui/core';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
+const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
+const _analysis = require('./binary-search.json');
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -48,6 +50,7 @@ function BinarySearch(props) {
                     </Grid>
                 </Grid>
             </Paper>
+            <AlgRuntimeModule unit={_analysis} id={_id}/>
         </div>
     );
 }

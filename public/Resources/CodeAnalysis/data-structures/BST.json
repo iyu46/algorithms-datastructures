@@ -1,0 +1,50 @@
+{
+  "Binary Search Tree" : [{
+    "desc": "A BST is sorted by definition and the runtimes will reflect this. Try not to get this confused with the Binary Search algorithm.",
+    "Runtime Complexity": {
+      "Average Case": {
+          "Search": {
+            "runtime": "O(log n)",
+            "rank": 2, 
+            "desc": "Normally, obtaining any given node only requires traversing down one branch of the tree to the bottom, which means the number of node accesses is on average the depth of the tree (log(n))."
+          },
+          "Insert": {
+            "runtime": "O(log n)",
+            "rank": 2,
+            "desc": "An insert into a binary search tree is a search for the closest value to the new node's value, and then a constant pointer assignment operation to append the new node to the tree, so the total runtime is the biggest of the two (log(n))."
+          },
+          "Delete": {
+            "runtime": "O(log n)",
+            "rank": 2,
+            "desc": "A delete from a binary search tree is a search for the given value, and then a constant pointer assignment operation to remove that node from the tree, so the total runtime is the biggest of the two (log(n))."
+          }
+      },
+      "Worst Case": {
+        "Search": {
+          "runtime": "O(n)",
+          "rank": 3,
+          "desc": "It's possible that every node added on to the root is bigger than the previous node added, forming a linked list of sorts and making the binary search tree look like one long line of nodes. This results in having to iterate through every single node if you search for the value that is at the end of the tree."
+        },
+        "Insert": {
+          "runtime": "O(n)",
+          "rank": 2,
+          "desc": "Given a binary search tree that looks like a linked list, inserting a new value that is greater than all of the previous values means having to iterate through every node with a linear search (O(n)) to get to the end, and then performing a constant pointer assignment to append the new node to the tree."
+        },
+        "Delete": {
+          "runtime": "O(n)",
+          "rank": 2,
+          "desc": "Given a binary search tree that looks like a linked list, deleting the last value in the tree means having to iterate through every node with a linear search (O(n)) to get to the end, and then performing a constant pointer assignment to remove the node to the tree."
+        }
+      }
+    },
+    "Space Complexity": {
+      "Search": {
+        "Worst Case": {
+          "runtime": "O(n)",
+          "rank": 3,
+          "desc" : "All the nodes must be stored in memory somewhere for the tree to exist, so the space complexity corresponds to the number of nodes."
+        }
+      }
+    }
+  }
+]}

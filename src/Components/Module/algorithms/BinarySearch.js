@@ -2,12 +2,12 @@ import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
 import _analysis from './binary-search';
+import _analysis2 from './merge-sort';
+import _analysis3 from './insertion-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
 const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
-//const _analysis = require('./binary-search.json');
-//const _analysi = JSON.parse(_analysis);
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -33,7 +33,7 @@ function BinarySearch(props) {
     } else {
         _path = '../../Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
     }
-    const test = [_analysis, _analysis, _analysis];
+    const test = [_analysis, _analysis2, _analysis3];
 
     return (
         <div>

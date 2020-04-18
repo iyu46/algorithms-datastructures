@@ -1,0 +1,23 @@
+{
+  "name": "Insertion Sort",
+  "desc": "Insertion sort is most similar to sorting a hand of cards.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": "The worst array for Insertion Sort to operate on is an array that is sorted in reverse order. If we want to reverse the array using Insertion Sort, the algorithm will have to find and move each element to the opposite side of the list. For example, finding the first element is 1 operation, and finding the opposite index in the list is n-1 operations, meaning in total it will take n operations for one element and n*n = n^2 operations for n elements."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(1)",
+      "rank": 1,
+      "desc": ""
+    }
+  }
+}

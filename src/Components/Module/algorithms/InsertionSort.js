@@ -1,9 +1,11 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
+import _analysis from './insertion-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
+const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -49,6 +51,7 @@ function InsertionSort(props) {
                     </Grid>
                 </Grid>
             </Paper>
+            <AlgRuntimeModule unit={_analysis} id={_id} solo/>
         </div>
     );
 }

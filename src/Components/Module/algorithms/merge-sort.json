@@ -1,0 +1,23 @@
+{
+  "name": "Merge Sort",
+  "desc": "Merge sort is a divide-and-conquer algorithm, meaning it breaks the sorting workload into smaller pieces and reassembles them at the end.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": "This is the fastest runtime a sorting algorithm can currently achieve."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(n)",
+      "rank": 3,
+      "desc": "This is because Merge Sort does not merge in place - it doesn't modify the original array, and instead creates a new array which contains the sorted elements. As such, all n elements from the old array must be allocated again in a new array."
+    }
+  }
+}

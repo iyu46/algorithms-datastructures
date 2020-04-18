@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
         borderRight: '2px solid rgba(255, 255, 255, 1)',
     },
     three: {
-        backgroundColor: 'rgba(255,100,0, 0.6)',
+        backgroundColor: 'rgba(255,255,10, 0.6)',
         color: '#804000',
         borderTop: '2px solid rgba(255, 255, 255, 1)',
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
         borderRight: '2px solid rgba(255, 255, 255, 1)',
     },
     four: {
-        backgroundColor: 'rgba(255,0,0, 0.6)',
+        backgroundColor: 'rgba(255,100,0, 0.6)',
         color: '#804000',
         borderTop: '2px solid rgba(255, 255, 255, 1)',
         borderBottom: '2px solid rgba(255, 255, 255, 1)',

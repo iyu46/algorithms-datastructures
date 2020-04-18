@@ -1,11 +1,13 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
+import _analysis from './binary-search';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
 const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
-const _analysis = require('./binary-search.json');
+//const _analysis = require('./binary-search.json');
+//const _analysi = JSON.parse(_analysis);
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -25,13 +27,13 @@ const useStyles = makeStyles(theme => ({
 function BinarySearch(props) {
     const classes = useStyles();
     const _id = props.id;
-    console.log(props);
     let _path;
     if (props.useGitPath) {
         _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
     } else {
         _path = '../../Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
     }
+    const test = [_analysis, _analysis, _analysis];
 
     return (
         <div>
@@ -50,7 +52,8 @@ function BinarySearch(props) {
                     </Grid>
                 </Grid>
             </Paper>
-            <AlgRuntimeModule unit={_analysis} id={_id}/>
+            <AlgRuntimeModule unit={_analysis} id={_id} solo/>
+            <AlgRuntimeModule unit={test} id={_id}/>
         </div>
     );
 }

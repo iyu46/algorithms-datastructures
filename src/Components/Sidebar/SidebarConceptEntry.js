@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { List, ListItem, ListItemText, Collapse } from '@material-ui/core'
+import { List, ListItem, ListItemText, Collapse, Divider } from '@material-ui/core'
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
@@ -67,6 +67,16 @@ export default function SidebarConceptEntry() {
           </ListItem>
           <ListItem button className={classes.nested} inset>
             <ListItemText primary="Hash Conflict Resolution" />
+          </ListItem>
+          <Divider />
+          <ListItem button className={classes.nested} inset>
+            <ListItemText primary="Memory Allocation" />
+          </ListItem>
+          <ListItem button className={classes.nested} inset>
+            <ListItemText primary="Atomicity" />
+          </ListItem>
+          <ListItem button className={classes.nested} inset>
+            <ListItemText primary="Synchronization" />
           </ListItem>
         </List>
       </Collapse>

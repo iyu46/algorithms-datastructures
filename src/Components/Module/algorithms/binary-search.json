@@ -1,22 +1,23 @@
 {
-  "Binary Search" : [{
-    "desc": "Binary search can only be used on sorted collections. Try not to get this confused with the Binary Search Tree data structure.",
-    "Runtime Complexity": {
-      "Average Case": {
-          "runtime": "O(log n)",
-          "rank": 2
-      },
-      "Worst Case": {
-        "runtime": "O(log n)",
-        "rank": 2,
-        "desc": "This is because each time a binary search algorithm iterates, it jumps halfway through the remaining list in a given direction, meaning the maximum number of jumps it can possibly take is log base 2 of the number of nodes. This can also be seen as the depth of the binary search tree."
-      }
+  "name": "Binary Search",
+  "desc": "Binary search can only be used on sorted collections. Try not to get this confused with the Binary Search Tree data structure.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(log n)",
+      "rank": 2,
+      "desc": ""
     },
-    "Space Complexity": {
-      "Worst Case": {
-        "runtime": "O(1)",
-        "rank": 1
-      }
+    "worst": {
+      "runtime": "O(log n)",
+      "rank": 2,
+      "desc": "This is because each time a binary search algorithm iterates, it jumps halfway through the remaining list in a given direction, meaning the maximum number of jumps it can possibly take is log base 2 of the number of nodes. This can also be seen as the depth of the binary search tree."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(1)",
+      "rank": 1,
+      "desc": ""
     }
   }
-]}
+}

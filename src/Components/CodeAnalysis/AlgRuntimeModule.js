@@ -1,12 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import { Paper, Tooltip } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Tooltip, Menu, MenuItem, IconButton } from '@material-ui/core';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+
+const ITEM_HEIGHT = 48;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -60,7 +57,8 @@ const useStyles = makeStyles(theme => ({
         borderRight: '2px solid rgba(255, 255, 255, 1)',
         paddingLeft: '2px',
     },
-    tableBorder: {
+    icon: {
+        padding: '0px',
     },
     zero: {
         backgroundColor: 'rgba(00, 00, 00, 0.2)',
@@ -103,7 +101,7 @@ const useStyles = makeStyles(theme => ({
         borderRight: '2px solid rgba(255, 255, 255, 1)',
     },
     five: {
-        backgroundColor: 'rgba(255,0,0, 0.6)',
+        backgroundColor: 'rgba(215,0,0, 0.6)',
         color: '#800000',
         borderTop: '2px solid rgba(255, 255, 255, 1)',
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
@@ -114,10 +112,14 @@ const useStyles = makeStyles(theme => ({
 
 function AlgRuntimeModule(unit) {
     const classes = useStyles();
-    const [hover, setHoverIndex] = useState(false);
+    const [_data, setData] = useState([]);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const mounted = useRef(false);
     const data = unit.unit;
     const _id = unit.id;
     const _solo = unit.solo;
+    const _traversal = unit.traversal
     const rToC = [ //rankToColour
         classes.zero, // not used for runtime, outer cells
         classes.one, // constant
@@ -126,55 +128,118 @@ function AlgRuntimeModule(unit) {
         classes.four, // n log n
         classes.five, // n^2
     ];
-    console.log(unit.unit);
-    //const mounted = useRef(false);
+    const sorting = [
+        "Insertion Sort",
+        "Selection Sort",
+        "Bubble Sort",
+        "Merge Sort",
+        "Quick Sort",
+        "Heap Sort",
+        "Binary Insertion Sort",
+    ];
+    const traversal = [
+        "Binary Search",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Kruskal's",
+        "Prim's",
+        "MST",
+        "Dijkstra's",
+    ]
+    const nameToFile = {
+        "Insertion Sort": "insertion-sort",
+        "Selection Sort": "selection-sort",
+        "Bubble Sort": "bubble-sort",
+        "Merge Sort": "merge-sort",
+        "Quick Sort": "quick-sort",
+        "Heap Sort": "heap-sort",
+        "X-Order Traversal": "order-traversal",
+        "Binary Insertion Sort": "binary-insertion",
+        "Binary Search": "binary-search",
+        "Depth-First Search": "dfs",
+        "Breadth-First Search": "bfs",
+        "Kruskal's": "kruskal",
+        "Prim's": "prim",
+        "MST": "mst",
+        "Dijkstra's": "dijkstra",
+    };
 
-    // useEffect(() => {
-    //     async function loadFile(path) {
-    //         return await fetch(path)
-    //             .then((r) => r.text())
-    //             .then((r) => r.split("\n"))
-    //             .then((r) => r.filter(a => !a.includes("/* ") && !a.includes("/**/")))
-    //             .then((r) => setCode(r));
-    //     }
-
-    //     if (!mounted.current) {
-    //         loadFile(_analysis);
-    //         mounted.current = true;
-    //     }
-    // });
-
-    function createData(name, desc, rc_avg, rc_avg_rank, rc_avg_desc, rc_worst, rc_worst_rank, rc_worst_desc, sc_worst, sc_worst_rank, sc_worst_desc) {
+    function createDataObject(name, desc, rc_avg, rc_avg_rank, rc_avg_desc, rc_worst, rc_worst_rank, rc_worst_desc, sc_worst, sc_worst_rank, sc_worst_desc) {
         return { name, desc, rc_avg, rc_avg_rank, rc_avg_desc, rc_worst, rc_worst_rank, rc_worst_desc, sc_worst, sc_worst_rank, sc_worst_desc };
     }
 
-    var rows = [];
+    const createData = (query) => {
+        return createDataObject(query.name,
+            query.desc,
+            query.runtimeComplexity.average.runtime,
+            query.runtimeComplexity.average.rank,
+            query.runtimeComplexity.average.desc,
+            query.runtimeComplexity.worst.runtime,
+            query.runtimeComplexity.worst.rank,
+            query.runtimeComplexity.worst.desc,
+            query.spaceComplexity.worst.runtime,
+            query.spaceComplexity.worst.rank,
+            query.spaceComplexity.worst.desc)
+    }
 
-    if (_solo) {
-        rows.push( createData(data.name,
-                data.desc,
-                data.runtimeComplexity.average.runtime,
-                data.runtimeComplexity.average.rank,
-                data.runtimeComplexity.average.desc,
-                data.runtimeComplexity.worst.runtime,
-                data.runtimeComplexity.worst.rank,
-                data.runtimeComplexity.worst.desc,
-                data.spaceComplexity.worst.runtime,
-                data.spaceComplexity.worst.rank,
-                data.spaceComplexity.worst.desc)
-        );
-    } else {
-            data.map( alg => {rows.push(createData(alg.name,
-                alg.desc,
-                alg.runtimeComplexity.average.runtime,
-                alg.runtimeComplexity.average.rank,
-                alg.runtimeComplexity.average.desc,
-                alg.runtimeComplexity.worst.runtime,
-                alg.runtimeComplexity.worst.rank,
-                alg.runtimeComplexity.worst.desc,
-                alg.spaceComplexity.worst.runtime,
-                alg.spaceComplexity.worst.rank,
-                alg.spaceComplexity.worst.desc))});
+    const addRow = (query, solo) => {
+        if (solo) {
+            if (!(_data.some(e => e.name === query.name))) { // if the requested element doesn't already exist in the list
+                setData(_data => [..._data, createData(query)]);
+            }
+        } else if (!solo) {
+            query.map( alg => setData(_data => [..._data, createData(alg)]));
+        }
+    }
+
+    const filtRow = (name) => {
+        setData(_data.filter(query => query.name !== name));
+    }
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const menuManageRow = (name) => {
+        if (!(_data.some(e => e.name === name))) { // if the requested element doesn't already exist in the list
+            try {
+                import('../Module/algorithms/json/'.concat(nameToFile[name])).then(query => {
+                    addRow(query, true);
+            })
+            } catch(err) {}
+        } else {
+            filtRow(name);
+        }
+        handleClose();
+    }
+
+    const returnTitle = () => {
+        return (_traversal ? 'Search Algorithms' : 'Sorting Algorithms');
+    }
+
+    const returnMap = (bool) => {
+        if (bool) {
+            return traversal.map((option) => (
+                <MenuItem key={option} onClick={() => menuManageRow(option)} alignItems={'center'}>
+                    {option}
+                </MenuItem>
+            ))
+        } else {
+            return sorting.map((option) => (
+                <MenuItem key={option} onClick={() => menuManageRow(option)} alignItems={'center'}>
+                    {option}
+                </MenuItem>
+            ))
+        }
+    }
+
+    if (!mounted.current) {
+        addRow(data, _solo);
+        mounted.current = true;
     }
 
     return (
@@ -183,22 +248,57 @@ function AlgRuntimeModule(unit) {
             <Table aria-label="table">
                 <TableHead>
                 <TableRow>
-                    <TableCell className={classes.zero}></TableCell>
+                    <TableCell align="center" className={classes.zero}>
+                        <IconButton
+                            aria-label="more"
+                            aria-controls="long-menu"
+                            aria-haspopup="true"
+                            onClick={handleClick}
+                            className={classes.icon}
+                        >
+                        <Tooltip title={"Add or remove items from the table with this button!"} arrow placement={'top'}>
+                            <MoreHorizIcon />
+                        </Tooltip>
+                        </IconButton>
+                        <Menu
+                            id="long-menu"
+                            anchorEl={anchorEl}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }} //doesn't work
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            keepMounted
+                            open={open}
+                            onClose={handleClose}
+                            PaperProps={{
+                            style: {
+                                maxHeight: ITEM_HEIGHT * 4.5,
+                                width: '24ch',
+                                },
+                            }}
+                        >
+                            {returnMap(_traversal)}
+                        </Menu>
+                    </TableCell>
                     <TableCell align="right" className={classes.tableNoBorderRight}>Runtime</TableCell>
                     <TableCell align="left" className={classes.tableNoBorderLeft}>Complexity</TableCell>
                     <TableCell align="center" className={classes.zero}>Space Complexity</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell align="left" className={classes.zero}>Algorithms</TableCell>
+                    <TableCell align="left" className={classes.zero}>{returnTitle()}</TableCell>
                     <TableCell align="center" className={classes.zero}>Average Case</TableCell>
                     <TableCell align="center" className={classes.zero}>Worst Case</TableCell>
                     <TableCell align="center" className={classes.zero}>Worst Case</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
-                {rows.map(row => (
+                {_data.map(row => (
                     <TableRow key={row.name}>
-                        <Tooltip title={row.desc} interactive arrow>
+                        <Tooltip title={row.desc} interactive arrow placement={'right'}>
                             <TableCell component="th" scope="row" className={classes.zero}>
                                 {row.name}
                             </TableCell>

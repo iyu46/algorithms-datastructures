@@ -1,0 +1,23 @@
+{
+  "name": "Quick Sort",
+  "desc": "Quick sort is a divide-and-conquer algorithm, meaning it breaks the sorting workload into smaller pieces and reassembles them at the end.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": "This happens when the algorithm is always unlucky, and picks the pivot to be at the top or bottom of every collection - which means to one side of the pivot will be an empty set of elements, and the other will be the rest of the elements in the collection. This means that each recursive call needs to do O(n) work to partition the sub-collection that isn't empty, so n elements * O(n) work = O(n^2)."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(log n)",
+      "rank": 2,
+      "desc": "Because Quick Sort sorts recursively, the extra stack space needed to contain and perform the recursive calls is at most O(log n)."
+    }
+  }
+}

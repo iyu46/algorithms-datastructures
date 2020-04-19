@@ -89,6 +89,11 @@ export default function SidebarAEntry() {
               <ListItemText primary="Binary Search" />
             </ListItem>
           </Link>
+          <Link to={'/algorithms/dfs'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Depth-First Search" />
+            </ListItem>
+          </Link>
           <Link to={'/algorithms/order-traversal'} className={classes.removeLinkStyling}>
             <ListItem button className={classes.nested}>
               <ListItemText primary="X-Order Traversal (Trees)" />
@@ -97,11 +102,6 @@ export default function SidebarAEntry() {
           <Link to={'/algorithms/bfs'} className={classes.removeLinkStyling}>
             <ListItem button className={classes.nested}>
               <ListItemText primary="Breadth-First Search" />
-            </ListItem>
-          </Link>
-          <Link to={'/algorithms/dfs'} className={classes.removeLinkStyling}>
-            <ListItem button className={classes.nested}>
-              <ListItemText primary="Depth-First Search" />
             </ListItem>
           </Link>
           <Link to={'/algorithms/kruskal'} className={classes.removeLinkStyling}>

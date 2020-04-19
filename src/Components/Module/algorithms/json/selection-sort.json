@@ -1,0 +1,23 @@
+{
+  "name": "Selection Sort",
+  "desc": "",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": "This is because Selection Sort every element in the array to find the lowest one. The algorithm scans n elements for all n iterations, which results in a O(n^2) runtime."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(1)",
+      "rank": 1,
+      "desc": ""
+    }
+  }
+}

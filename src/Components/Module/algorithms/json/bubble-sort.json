@@ -1,0 +1,23 @@
+{
+  "name": "Bubble Sort",
+  "desc": "",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": "This is because Bubble Sort needs to move every element across the collection ('bubbling' toward the top)."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(1)",
+      "rank": 1,
+      "desc": ""
+    }
+  }
+}

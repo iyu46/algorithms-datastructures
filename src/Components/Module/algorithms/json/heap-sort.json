@@ -1,0 +1,23 @@
+{
+  "name": "Heap Sort",
+  "desc": "Heap Sort uses the input data to create a heap, which is a sorted data structure.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": "This is the fastest runtime a sorting algorithm can currently achieve."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(n)",
+      "rank": 3,
+      "desc": "This is because Heap Sort does not sort in place - it doesn't modify the original array, and instead creates a new array which contains the sorted elements. As such, all n elements from the old array must be allocated again in a new array."
+    }
+  }
+}

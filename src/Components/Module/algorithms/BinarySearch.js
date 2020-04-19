@@ -1,9 +1,7 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
-import _analysis from './binary-search';
-import _analysis2 from './merge-sort';
-import _analysis3 from './insertion-sort';
+import _analysis from './json/binary-search';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
@@ -33,7 +31,6 @@ function BinarySearch(props) {
     } else {
         _path = '../../Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
     }
-    const test = [_analysis, _analysis2, _analysis3];
 
     return (
         <div>
@@ -53,7 +50,6 @@ function BinarySearch(props) {
                 </Grid>
             </Paper>
             <AlgRuntimeModule unit={_analysis} id={_id} solo/>
-            <AlgRuntimeModule unit={test} id={_id}/>
         </div>
     );
 }

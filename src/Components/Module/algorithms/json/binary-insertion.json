@@ -1,0 +1,23 @@
+{
+  "name": "Binary Insertion Sort",
+  "desc": "This assumes the sort is done with a non-self-balancing binary search tree. If it's done with an AVL self-balancing tree, the worst runtime complexity becomes O(n log n). Try not to get this confused with the Binary Search Tree data structure or the Binary Search algorithm, which is used n times in this sort.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(n log n)",
+      "rank": 4,
+      "desc": "Binary Search (which takes O(log n) time) is done n times for this algorithm."
+    },
+    "worst": {
+      "runtime": "O(n^2)",
+      "rank": 5,
+      "desc": "This runtime results if each element inserted to the list is consecutively greater than the last, meaning the resulting tree takes the appearance of a linked list. If this algorithm is implemented with an AVL self-balancing tree, the runtime becomes O(n log n) as the linked list problem cannot happen."
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(n)",
+      "rank": 3,
+      "desc": "A new tree is created from the old set of inputs, meaning n elements must be allocated in memory again."
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
-import _analysis from './merge-sort';
+import _analysis from './json/merge-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 function MergeSort(props) {
     const classes = useStyles();
     const _id = props.id;
-    console.log(props);
+    //console.log(props);
     let _path;
     if (props.useGitPath) {
         _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + _id + '.cpp';

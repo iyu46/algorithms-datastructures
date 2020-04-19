@@ -1,0 +1,23 @@
+{
+  "name": "Depth-First Search",
+  "desc": "Depth-first search implements pre, in, and post-order traversals. This assumes the structure is a binary tree.",
+  "runtimeComplexity": {
+    "average": {
+      "runtime": "O(V + E)",
+      "rank": 3,
+      "desc": ""
+    },
+    "worst": {
+      "runtime": "O(V + E)",
+      "rank": 3,
+      "desc": ""
+    }
+  },
+  "spaceComplexity": {
+    "worst": {
+      "runtime": "O(m)",
+      "rank": 3,
+      "desc": ""
+    }
+  }
+}

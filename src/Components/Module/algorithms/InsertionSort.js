@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
-import _analysis from './insertion-sort';
+import _analysis from './json/insertion-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));

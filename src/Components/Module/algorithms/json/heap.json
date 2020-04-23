@@ -1,0 +1,40 @@
+{
+  "name": "Heap",
+  "desc": "The heap-exclusive operation 'findMinimum()' or 'peek()' is constant time.",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      }
+    }
+  }
+}

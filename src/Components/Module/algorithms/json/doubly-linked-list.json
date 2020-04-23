@@ -1,0 +1,40 @@
+{
+  "name": "Doubly-Linked List",
+  "desc": "Contiguous elements in memory. Doubly linked lists have nodes which contain pointers to both the element in front of them and the element behind them in the list. They also store a pointer to the first element (head). In this table, we assume linked lists are open (non-circular).",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "Insertion at the end of the list is a constant operation."
+      },
+      "deletion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": "Deletion involves two operations in a linked list: finding the tail element (takes O(n) at worst) and deleting the tail element (constant)."
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": "In the worst case, the element being searched for is at the end of the list."
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "Insertion at the end of the list is a constant operation."
+      },
+      "deletion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": "Deletion involves two operations in a  linked list: finding the tail element (takes O(n) at worst) and deleting the tail element (constant)."
+      }
+    }
+  }
+}

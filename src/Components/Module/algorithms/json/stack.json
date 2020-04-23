@@ -1,0 +1,40 @@
+{
+  "name": "Stack",
+  "desc": "Stacks operate on a first in, first out principle (FIFO).",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "Insertion at the top of the stack is a constant operation."
+      },
+      "deletion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "For stacks, elements are removed at the top of the stack, which is a constant operation."
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "Insertion at the top of the stack is a constant operation."
+      },
+      "deletion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": "For stacks, elements are removed at the top of the stack, which is a constant operation."
+      }
+    }
+  }
+}

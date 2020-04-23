@@ -1,0 +1,40 @@
+{
+  "name": "Hash Table",
+  "desc": "B.",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(1)",
+        "rank": 1,
+        "desc": ""
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      }
+    }
+  }
+}

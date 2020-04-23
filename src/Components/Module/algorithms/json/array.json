@@ -1,0 +1,40 @@
+{
+  "name": "Array",
+  "desc": "Contiguous elements in memory",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "—",
+        "rank": 0,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "—",
+        "rank": 0,
+        "desc": ""
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "—",
+        "rank": 0,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "—",
+        "rank": 0,
+        "desc": ""
+      }
+    }
+  }
+}

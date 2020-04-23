@@ -1,0 +1,40 @@
+{
+  "name": "B-Tree",
+  "desc": "B.",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      },
+      "insertion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": ""
+      }
+    }
+  }
+}

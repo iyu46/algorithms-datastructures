@@ -1,0 +1,40 @@
+{
+  "name": "Sorted Array",
+  "desc": "Sorted contiguous elements in memory, option for implementing the Dictionary Abstract Data Type",
+  "runtimeComplexity": {
+    "average": {
+      "search": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": "Repeated Binary Search reduces the search time to O(log n)."
+      },
+      "insertion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      }
+    },
+    "worst": {
+      "search": {
+        "runtime": "O(log n)",
+        "rank": 2,
+        "desc": "Repeated Binary Search reduces the search time to O(log n)."
+      },
+      "insertion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      },
+      "deletion": {
+        "runtime": "O(n)",
+        "rank": 3,
+        "desc": ""
+      }
+    }
+  }
+}

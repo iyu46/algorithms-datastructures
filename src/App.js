@@ -1,11 +1,11 @@
 import React, { Suspense, lazy } from 'react';
-import favicon from './favicon.ico';
 import './App.css';
 
 import AlgContainer from './Components/Container/AlgContainer.js';
 import DSContainer from './Components/Container/DSContainer.js';
 import { Route, Switch } from "react-router-dom";
 
+// temporary example code
 import s1 from './Components/Module/algorithms/json/insertion-sort';
 import s2 from './Components/Module/algorithms/json/selection-sort';
 import s3 from './Components/Module/algorithms/json/bubble-sort';
@@ -27,6 +27,7 @@ import d7 from './Components/Module/algorithms/json/avl';
 import d8 from './Components/Module/algorithms/json/b-tree';
 import d9 from './Components/Module/algorithms/json/hash-table';
 import d10 from './Components/Module/algorithms/json/heap';
+// temporary example code
 
 const AlgRuntimeModule = lazy(() => import('./Components/CodeAnalysis/AlgRuntimeModule'));
 const DSRuntimeModule = lazy(() => import('./Components/CodeAnalysis/DSRuntimeModule'));

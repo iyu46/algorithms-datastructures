@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Paper, Tooltip, Menu, MenuItem, IconButton } from '@material-ui/core';
@@ -9,12 +9,6 @@ const ITEM_HEIGHT = 48;
 
 const useStyles = makeStyles(theme => ({
     root: {
-    },
-    code: {
-        fontSize: "calc(3px + 1vw)",
-        display: "inline-block!important",
-        boxSizing: "border-box!important",
-        wordBreak: "break-all",
     },
     tooltip: {
         position: 'relative',
@@ -59,6 +53,12 @@ const useStyles = makeStyles(theme => ({
         borderRight: '2px solid rgba(255, 255, 255, 1)',
         paddingLeft: '2px',
     },
+    tableNoBorderCenter: {
+        backgroundColor: 'rgba(00, 00, 00, 0.2)',
+        fontWeight: '500',
+        borderTop: '2px solid rgba(255, 255, 255, 1)',
+        borderBottom: '2px solid rgba(255, 255, 255, 1)',
+    },
     visuallyHidden: {
         border: 0,
         clip: 'rect(0 0 0 0)',
@@ -86,6 +86,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '8px',
+        paddingBottom: '8px',
     },
     one: {
         backgroundColor: 'rgba(00, 150, 00, 0.6)',
@@ -94,6 +96,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     two: {
         backgroundColor: 'rgba(130, 240, 10, 0.6)',
@@ -102,6 +106,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     three: {
         backgroundColor: 'rgba(255,255,10, 0.6)',
@@ -110,6 +116,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     four: {
         backgroundColor: 'rgba(255,100,0, 0.6)',
@@ -118,6 +126,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     five: {
         backgroundColor: 'rgba(215,0,0, 0.6)',
@@ -126,16 +136,33 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     }
 }));
 
 function descendingComparator(a, b, orderBy) {
-    if (orderBy === "strawberry") return 0;
-    var substring = orderBy.substring(0, orderBy.length - 5);
-    if (b[substring].rank < a[substring].rank) {
+    var aQuery;
+    var bQuery;
+
+    switch (orderBy) {
+        case "strawberry": //throwaway default value
+            return 0;
+        case "name":
+            aQuery = a[orderBy];
+            bQuery = b[orderBy];
+            break;
+        default: // catch for any of the "sort by complexity" options in the table
+            var substring = orderBy.substring(0, orderBy.length - 5);
+            aQuery = a[substring].rank;
+            bQuery = b[substring].rank;
+            break;
+    }
+
+    if (bQuery < aQuery) {
         return -1;
     }
-    if (b[substring].rank > a[substring].rank) {
+    if (bQuery > aQuery) {
         return 1;
     }
     return 0;
@@ -244,7 +271,7 @@ function DSRuntimeModule(unit) {
     const open = Boolean(anchorEl);
     const mounted = useRef(false);
     const data = unit.unit;
-    const _id = unit.id;
+    //const _id = unit.id;
     const _solo = unit.solo;
     const rToC = [ //rankToColour
         classes.zero, // not used for runtime, outer cells only
@@ -393,12 +420,13 @@ function DSRuntimeModule(unit) {
                                 {returnMap()}
                             </Menu>
                         </TableCell>
-                        <TableCell align="right" className={classes.tableNoBorderRight}>Runtime</TableCell>
-                        <TableCell align="left" className={classes.tableNoBorderLeft}>Complexity</TableCell>
-                        <TableCell align="center" className={classes.zero}>Runtime Complexity</TableCell>
-                        <TableCell align="right" className={classes.tableNoBorderRight}>Runtime</TableCell>
-                        <TableCell align="left" className={classes.tableNoBorderLeft}>Complexity</TableCell>
-                        <TableCell align="center" className={classes.zero}>Runtime Complexity</TableCell>
+                        <TableCell align="right" className={classes.tableNoBorderRight}></TableCell>
+                        <TableCell align="center" className={classes.tableNoBorderCenter}>Runtime Complexity</TableCell>
+                        <TableCell align="left" className={classes.tableNoBorderLeft}></TableCell>
+                        <TableCell align="right" className={classes.tableNoBorderRight}></TableCell>
+                        <TableCell align="center" className={classes.tableNoBorderCenter}>Runtime Complexity</TableCell>
+                        <TableCell align="left" className={classes.tableNoBorderLeft}></TableCell>
+
                     </TableRow>
                 </TableHead>
                 <EnhancedTableHead

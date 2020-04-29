@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 function CodeAnalysisModule(unit) {
     const classes = useStyles();
     const [code, setCode] = useState([]);
-    const [hover, setHoverIndex] = useState(false);
+    //const [hover, setHoverIndex] = useState(false);
     const _path = unit.unit;
     const _id = unit.id;
     const mounted = useRef(false);
@@ -59,7 +59,7 @@ function CodeAnalysisModule(unit) {
     });
 
     const onMouseHover = (index) => {
-        setHoverIndex(index);
+        //setHoverIndex(index);
         scrollTo(index);
         return;
         //console.log("hovering");
@@ -79,7 +79,7 @@ function CodeAnalysisModule(unit) {
 
     return (
         <div className={classes.code}>
-            {code.map((item, index) => 
+            {code.map((item, index) =>
             { return (
                 <pre className={classes.text} onMouseEnter={() => onMouseHover(index)} onClick={(index) => scrollTo(index)} key={index}>
                     <SyntaxHighlighter language="cpp" style={atom}>

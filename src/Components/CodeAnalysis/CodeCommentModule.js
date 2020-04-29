@@ -48,7 +48,7 @@ function CodeCommentModule(unit) {
             mounted.current = true;
         }
     });
-    
+
     return (
         <div className={classes.code}>
             <Element name="comments" className="active" id={_id} style={{
@@ -66,7 +66,9 @@ function CodeCommentModule(unit) {
                             <Divider />
                         {/* </Link> */}
                     </Element>)
-                    }})}
+                    }
+                    return null;
+                    })}
             </Element>
         </div>
     );

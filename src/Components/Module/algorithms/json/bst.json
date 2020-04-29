@@ -1,6 +1,6 @@
 {
   "name": "Binary Search Tree",
-  "desc": "B.",
+  "desc": "Binary search trees are ",
   "runtimeComplexity": {
     "average": {
       "search": {

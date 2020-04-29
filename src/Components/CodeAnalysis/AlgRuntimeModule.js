@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Paper, Tooltip, Menu, MenuItem, IconButton } from '@material-ui/core';
@@ -86,6 +86,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '8px',
+        paddingBottom: '8px',
     },
     one: {
         backgroundColor: 'rgba(00, 150, 00, 0.6)',
@@ -94,6 +96,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     two: {
         backgroundColor: 'rgba(130, 240, 10, 0.6)',
@@ -102,6 +106,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     three: {
         backgroundColor: 'rgba(255,255,10, 0.6)',
@@ -110,6 +116,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     four: {
         backgroundColor: 'rgba(255,100,0, 0.6)',
@@ -118,6 +126,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     },
     five: {
         backgroundColor: 'rgba(215,0,0, 0.6)',
@@ -126,6 +136,8 @@ const useStyles = makeStyles(theme => ({
         borderBottom: '2px solid rgba(255, 255, 255, 1)',
         borderLeft: '2px solid rgba(255, 255, 255, 1)',
         borderRight: '2px solid rgba(255, 255, 255, 1)',
+        paddingTop: '4px',
+        paddingBottom: '4px',
     }
 }));
 
@@ -243,7 +255,7 @@ function AlgRuntimeModule(unit) {
     const open = Boolean(anchorEl);
     const mounted = useRef(false);
     const data = unit.unit;
-    const _id = unit.id;
+    //const _id = unit.id;
     const _solo = unit.solo;
     const _traversal = unit.traversal
     const rToC = [ //rankToColour

@@ -35,7 +35,7 @@ function MergeSort(props) {
 
     return (
         <div>
-            <h1>Merge Sort is a recursive, divide-and-conquer algorithm</h1>
+            <h1>Merge Sort is a recursive, divide-and-conquer sorting algorithm</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>

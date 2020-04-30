@@ -36,7 +36,7 @@ function InsertionSort(props) {
 
     return (
         <div>
-            <h1>Insertion Sort is an iterative algorithm</h1>
+            <h1>Insertion Sort is an iterative sorting algorithm</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>

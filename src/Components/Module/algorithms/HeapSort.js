@@ -1,9 +1,11 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
+import _analysis from './json/heap-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
+const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,7 +34,7 @@ function HeapSort(props) {
 
     return (
         <div>
-            <h1>Heap Sort is an iterative algorithm</h1>
+            <h1>Heap Sort is an iterative sorting algorithm</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>
@@ -47,6 +49,7 @@ function HeapSort(props) {
                     </Grid>
                 </Grid>
             </Paper>
+            <AlgRuntimeModule unit={_analysis} id={_id} solo/>
         </div>
     );
 }

@@ -34,8 +34,8 @@ function BinarySearch(props) {
 
     return (
         <div>
-            <h1>Merge Sort is a recursive, divide-and-conquer algorithm</h1>
-            <Paper elevation={3} className={classes.container}>
+            <h1>Binary Search is a recursive search algorithm</h1>
+            {/* <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>
                         <Paper elevation={0} className={classes.paper}>
@@ -48,7 +48,7 @@ function BinarySearch(props) {
                         </Paper>
                     </Grid>
                 </Grid>
-            </Paper>
+            </Paper> */}
             <AlgRuntimeModule unit={_analysis} id={_id} solo/>
         </div>
     );

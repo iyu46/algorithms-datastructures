@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
-import _analysis from './json/quick-sort';
+import _analysis from './json/merge-sort';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function QuickSort(props) {
+
+function Array(props) {
     const classes = useStyles();
-    //const _id = "Quick";
     const _id = props.id;
-    console.log(props);
+    //console.log(props);
     let _path;
     if (props.useGitPath) {
         _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
@@ -35,7 +35,7 @@ function QuickSort(props) {
 
     return (
         <div>
-            <h1>Quick Sort is a recursive, divide-and-conquer sorting algorithm</h1>
+            <h1>Merge Sort is a recursive, divide-and-conquer sorting algorithm</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>
@@ -55,4 +55,4 @@ function QuickSort(props) {
     );
 }
 
-export default QuickSort;
+export default Array;

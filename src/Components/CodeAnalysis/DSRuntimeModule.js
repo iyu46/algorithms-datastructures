@@ -346,7 +346,7 @@ function DSRuntimeModule(unit) {
     const menuManageRow = (name) => {
         if (!(_data.some(e => e.name === name))) { // if the requested element doesn't already exist in the list
             try {
-                import('../Module/algorithms/json/'.concat(nameToFile[name])).then(query => {
+                import('../Module/data-structures/json/'.concat(nameToFile[name])).then(query => {
                     addRow(query, true);
             })
             } catch(err) {}

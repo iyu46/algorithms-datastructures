@@ -1,11 +1,11 @@
 import React, { lazy } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
-import _analysis from './json/merge-sort';
+import _analysis from './json/array';
 
 const CodeAnalysisModule = lazy(() => import('../../CodeAnalysis/CodeAnalysisModule'));
 const CodeCommentModule = lazy(() => import('../../CodeAnalysis/CodeCommentModule'));
-const AlgRuntimeModule = lazy(() => import('../../CodeAnalysis/AlgRuntimeModule'));
+const DSRuntimeModule = lazy(() => import('../../CodeAnalysis/DSRuntimeModule'));
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,38 +21,42 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+function returnInputPath(useGitPath, id, target) {
+    if (useGitPath) {
+       return ('https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + id + '/' + target + '.cpp');
+    } else {
+        return ('../../Resources/CodeAnalysis/data-structures/' + id + '/' + target + '.cpp');
+    }
+}
 
-function Array(props) {
+function Array_(props) {
     const classes = useStyles();
     const _id = props.id;
     //console.log(props);
-    let _path;
-    if (props.useGitPath) {
-        _path = 'https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
-    } else {
-        _path = '../../Resources/CodeAnalysis/algorithms/' + _id + '.cpp';
-    }
+    let search = returnInputPath(props.useGitPath, _id, 'search');
+    // let insertion = returnInputPath(props.useGitPath, _id, 'insertion');
+    // let deletion = returnInputPath(props.useGitPath, _id, 'deletion');
 
     return (
         <div>
-            <h1>Merge Sort is a recursive, divide-and-conquer sorting algorithm</h1>
+            <h1>{_id}</h1>
             <Paper elevation={3} className={classes.container}>
                 <Grid container spacing={0} direction="row" alignItems="center">
                     <Grid item xs={12} sm={6}>
                         <Paper elevation={0} className={classes.paper}>
-                            <CodeAnalysisModule unit={_path} id={_id}/>
+                            <CodeAnalysisModule unit={search} id={_id}/>
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Paper elevation={0} className={classes.paper}>
-                            <CodeCommentModule unit={_path} id={_id}/>
+                            <CodeCommentModule unit={search} id={_id}/>
                         </Paper>
                     </Grid>
                 </Grid>
             </Paper>
-            <AlgRuntimeModule unit={_analysis} id={_id} solo/>
+            <DSRuntimeModule unit={_analysis} id={_id} solo/>
         </div>
     );
 }
 
-export default Array;
+export default Array_;

@@ -17,16 +17,16 @@ import s7 from './Components/Module/algorithms/json/binary-insertion';
 import t1 from './Components/Module/algorithms/json/binary-search';
 import t2 from './Components/Module/algorithms/json/dfs';
 
-import d1 from './Components/Module/algorithms/json/array';
-import d2 from './Components/Module/algorithms/json/sorted-array';
-import d3 from './Components/Module/algorithms/json/linked-list';
-import d4 from './Components/Module/algorithms/json/doubly-linked-list';
-import d5 from './Components/Module/algorithms/json/stack';
-import d6 from './Components/Module/algorithms/json/bst';
-import d7 from './Components/Module/algorithms/json/avl';
-import d8 from './Components/Module/algorithms/json/b-tree';
-import d9 from './Components/Module/algorithms/json/hash-table';
-import d10 from './Components/Module/algorithms/json/heap';
+import d1 from './Components/Module/data-structures/json/array';
+import d2 from './Components/Module/data-structures/json/sorted-array';
+import d3 from './Components/Module/data-structures/json/linked-list';
+import d4 from './Components/Module/data-structures/json/doubly-linked-list';
+import d5 from './Components/Module/data-structures/json/stack';
+import d6 from './Components/Module/data-structures/json/bst';
+import d7 from './Components/Module/data-structures/json/avl';
+import d8 from './Components/Module/data-structures/json/b-tree';
+import d9 from './Components/Module/data-structures/json/hash-table';
+import d10 from './Components/Module/data-structures/json/heap';
 // temporary example code
 
 const AlgRuntimeModule = lazy(() => import('./Components/CodeAnalysis/AlgRuntimeModule'));

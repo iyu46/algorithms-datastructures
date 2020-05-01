@@ -59,10 +59,12 @@ export default function SidebarDSEntry() {
                 <ListItemText secondary="+ Sorted Array" />
             </ListItem>
           </Link>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="Linked List" />
-            <ListItemText secondary=" + Doubly-Linked List" />
-          </ListItem>
+          <Link to={'/data-structures/linked-list'} className={classes.removeLinkStyling}>
+            <ListItem button className={classes.nested}>
+              <ListItemText primary="Linked List" />
+              <ListItemText secondary=" + Doubly-Linked List" />
+            </ListItem>
+          </Link>
           <ListItem button className={classes.nested}>
             <ListItemText primary="Stack" />
           </ListItem>

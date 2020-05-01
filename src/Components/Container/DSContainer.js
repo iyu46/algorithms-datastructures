@@ -3,11 +3,12 @@ import { useParams } from "react-router";
 
 //const XX = lazy(() => import("../Module/data-structures/XX"));
 const Array_ = lazy(() => import("../Module/data-structures/Array"));
+const LinkedList = lazy(() => import("../Module/data-structures/LinkedList"));
 
 const unitToComponent = {
   "array": Array_,
   // "sorted-array": SortedArray,
-  // "linked-list": LinkedList,
+  "linked-list": LinkedList,
   // "doubly-linked-list": DoublyLinkedList,
   // "stack": Stack,
   // "bst": BST,
@@ -18,7 +19,7 @@ const unitToComponent = {
   // "disjoint": DisjointSet,
 };
 
-const useGitPath = true;
+const useGitPath = false;
 
 const DSContainer = () => {
   const { unit } = useParams();

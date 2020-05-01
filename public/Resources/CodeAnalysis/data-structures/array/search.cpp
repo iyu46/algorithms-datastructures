@@ -2,7 +2,7 @@
 bool search(T[] array, int size, T target) {
 /* We use a for-loop to iterate through the array and check if elements match the target value. */
   for (int step = 0; step < size; step++) {
-    /* Return true if an array element matches the one we're looking for. */
+    /* Return true if an array element matches the one we're looking for. The return exits both the for-loop and the function. */
     if (array[step] == target) {
       /**/
       return true;
@@ -17,6 +17,6 @@ bool search(T[] array, int size, T target) {
 /* This is an example array of 5 elements. */
 int arr[5] = { 1, 2, 3, 4, 5 };
 /* An example call to search() is shown that would search arr for 3. It would return true. */
-search(arr, 5, 3);
+bool found = search(arr, 5, 3);
 /* An example call to search() is shown that would search arr for 6. It would return false. */
-search(arr, 5, 6);
+bool lost = search(arr, 5, 6);

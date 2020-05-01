@@ -6,6 +6,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const ITEM_HEIGHT = 48;
+const DEFAULT_KEY = "strawberry";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -251,7 +252,7 @@ function AlgRuntimeModule(unit) {
     const [_data, setData] = useState([]);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('strawberry');
+    const [orderBy, setOrderBy] = React.useState(DEFAULT_KEY);
     const open = Boolean(anchorEl);
     const mounted = useRef(false);
     const data = unit.unit;

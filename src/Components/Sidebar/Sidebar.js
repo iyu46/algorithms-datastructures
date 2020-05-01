@@ -224,7 +224,6 @@ export default function Sidebar() {
         <Divider />
           {['', ''].map((text, index) => (
             <ListItem className={classes.listBlank} key={text}>
-              <ListItemIcon></ListItemIcon>
               <ListItemText primary={text} className={classes.listBlank} />
             </ListItem>
           ))}

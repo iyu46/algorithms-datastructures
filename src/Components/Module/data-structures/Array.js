@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 function returnInputPath(useGitPath, id, target) {
     if (useGitPath) {
-       return ('https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/algorithms/' + id + '/' + target + '.cpp');
+       return ('https://raw.githubusercontent.com/Kaillus/algorithms-datastructures/master/public/Resources/CodeAnalysis/data-structures/' + id + '/' + target + '.cpp');
     } else {
         return ('../../Resources/CodeAnalysis/data-structures/' + id + '/' + target + '.cpp');
     }

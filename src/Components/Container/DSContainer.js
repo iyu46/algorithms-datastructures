@@ -18,7 +18,7 @@ const unitToComponent = {
   // "disjoint": DisjointSet,
 };
 
-const useGitPath = false;
+const useGitPath = true;
 
 const DSContainer = () => {
   const { unit } = useParams();

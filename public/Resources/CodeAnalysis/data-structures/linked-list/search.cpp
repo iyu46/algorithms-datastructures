@@ -44,6 +44,7 @@ void insert(Node* & head, T value) {
   newNode->next = head;
   /* Redirect the input head pointer to the new head (the inserted node). */
   head = newNode;
+/**/
 }
 /* An example call to insert() is shown that would insert 3 into a linked list of integers. */
 insert(list2, 3);

@@ -1,0 +1,61 @@
+{
+  "name": "Merge Sort Exercises",
+  "problems": [{
+    "sortedLists": {
+      "purpose": "Show two sorted subarrays and prime the concept of partitioning",
+      "problemType": "answer",
+      "problem": "Shown below is two lists of numbers. What's special about them?",
+      "solution": "They're sorted and the same length. What could be some reasons that these two properties are important?",
+      "resources": ["link-to-image-to-display"],
+      "solutionResources": []
+    },
+    "designMerge": {
+      "purpose": "Expand on in-class mergeSort demonstration and challenge problem-solving skills",
+      "problemType": "code",
+      "problem": "Design the merge function in Merge Sort (create a function that combines two sorted subarrays into one bigger sorted array).",
+      "solution": "Our solution is shown below. Compare your solution and see what's similar and what's different - for example, did you do it recursively or iteratively like us?",
+      "resources": [],
+      "solutionResources": ["merge.cpp"]
+    },
+    "runtimeMerge": {
+      "purpose": "Test runtime comprehension",
+      "problemType": "answer",
+      "problem": "What should the runtime of the merge function be?",
+      "solution": "O(n)",
+      "resources": [],
+      "solutionResources": ["merge-runtime.png"]
+    },
+    "correctnessMerge": {
+      "purpose": "Test correctness and induction proof comprehension",
+      "problemType": "proof",
+      "problem": "Prove correctness of the merge function. The solution provided will be based off the implementation shown below.",
+      "solution": "The correctness proof is shown below as a proof by induction:",
+      "resources": ["merge.cpp"],
+      "solutionResources": ["merge-correctness.png"]
+    },
+    "designMergeSort": {
+      "purpose": "Test algorithm creation comprehension as a whole",
+      "problemType": "code",
+      "problem": "Using what you know about the implementation and the concept of the merge function, design Merge Sort.",
+      "solution": "Merge Sort is shown below:",
+      "resources": [],
+      "solutionResources": ["merge-sort.cpp"]
+    },
+    "correctnessMergeSort": {
+      "purpose": "Test correctness and induction proof comprehension",
+      "problemType": "proof",
+      "problem": "Prove correctness of the Merge Sort algorithm. Make sure to clearly state any assumptions that you make. The solution provided will be based off the implementation shown below.",
+      "solution": "The upper bound of Merge Sort is O(n log n), as shown below:",
+      "resources": ["merge-sort.cpp"],
+      "solutionResources": ["merge-sort-correctness.png"]
+    },
+    "mid": {
+      "purpose": "Demonstrate comprehension of merge sort as an algorithm",
+      "problemType": "answer",
+      "problem": "Does the computation of 'mid' in the Merge Sort algorithm matter in its correctness proof? What about its runtime proof?",
+      "solution": "The computation of 'mid' doesn't matter in Merge Sort's correctness proof, but it does matter in its runtime proof.",
+      "resources": [],
+      "solutionResources": []
+    }
+  }]
+}
